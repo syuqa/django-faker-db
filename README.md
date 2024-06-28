@@ -43,7 +43,7 @@ services:
 
 
 
-## Конфигурации
+## Конфигурации баз данных
 
 #### Oracle
 File: settings/oracle.py
