@@ -100,6 +100,12 @@ DATABASES = {
         'PORT': '1521',
     },
     'default': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'FREE',
+        'USER': 'homelab',
+        'PASSWORD': 'home1234',
+        'HOST': 'oracledb',
+        'PORT': '1521',
     }
 }
 
