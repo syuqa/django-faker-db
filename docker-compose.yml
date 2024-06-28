@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  faker:
+    build: .
+    volumes:
+      - ./settings:/code/app/faker/conf
+    command: /code/entrypoint.sh
+    networks:
+      - proxy-oracledb-network
+      - proxy-database-network
+    environment:
+        # Файл с конфигурациями
+        FAKER_SETTINGS: oracle
+        # Базы данных
+        FAKER_DATABASE: SCHEMA1,SCHEMA2,SCHEMA3,SCHEMA4,SCHEMA5,SCHEMA6,SCHEMA7,SCHEMA8,SCHEMA9,SCHEMA10
+        # Кол-во баз данных
+        CREATE_COUNT_METADATA_DATABASE: 50
+        # Кол-во колонок в каждой базе - первичный ключ (он создатся по умолчанию), например что бы было 100 колонок надо указать 99.  
+        CREATE_COUNT_METADATA_DATABASE_COLUMNS: 99
+        # Типы колонок, через зяпятую (Char, Boolean, Integer, Slug, Auto, Text)
+        CREATE_COUNT_METADATA_DATABASE_COLUMNS_TYPES: Char
+        # Кол-во связей, всего.
+        CREATE_COUNT_METADATA_DATABASE_COLUNNS_FK: 50
+
+
+networks:
+  proxy-oracledb-network:
+    external: true
+  proxy-database-network:
+    external: true

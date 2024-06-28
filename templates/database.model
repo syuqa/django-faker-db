@@ -1,0 +1,12 @@
+from django.db import models
+from dbview.models import DbView
+
+# TABLES
+{% for table in meta %}
+class {{table.table}}(models.Model):
+    {% for col in table.columns %}{{ col.name }} = {% if col.fk %}models.ForeignKey("{{col.fk}}", on_delete=models.CASCADE){% else %}models.{{col.type}}Field(max_length=150){% endif %}
+    {% endfor %}
+{% endfor %}
+
+# VIEWS
+
