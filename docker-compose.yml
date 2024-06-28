@@ -12,8 +12,14 @@ services:
     environment:
         # Файл с конфигурациями
         FAKER_SETTINGS: oracle
-        # Базы данных
-        FAKER_DATABASE: SCHEMA1,SCHEMA2,SCHEMA3,SCHEMA4,SCHEMA5,SCHEMA6,SCHEMA7,SCHEMA8,SCHEMA9,SCHEMA10
+        # Тип миграции sql или jdbc
+        # jdbc необходимо задать переменную FAKER_DATABASE перечислив через запятую базы данных для миграции.
+        # sql если не задана переменная FAKER_MIGRATE_SQLFILE (= полный путь к файлу), то sql будет выведен в консоль.
+        FAKER_MIGRATE: sql
+        # файл с sql скриптом.
+        FAKER_MIGRATE_SQLFILE: /tmp/migrate.sql
+        # Базы данных 
+        # FAKER_DATABASE: SCHEMA1,SCHEMA2,SCHEMA3,SCHEMA4,SCHEMA5,SCHEMA6,SCHEMA7,SCHEMA8,SCHEMA9,SCHEMA10
         # Кол-во баз данных
         CREATE_COUNT_METADATA_DATABASE: 50
         # Кол-во колонок в каждой базе - первичный ключ (он создатся по умолчанию), например что бы было 100 колонок надо указать 99.  
