@@ -5,7 +5,7 @@
 
 #### Склонировать репозиторий
 ```bash
-git clone https://github.com/syuqa/django-fiker-db.git
+git clone https://github.com/syuqa/django-faker-db.git
 ```
 #### Собрать образ
 ```bash
